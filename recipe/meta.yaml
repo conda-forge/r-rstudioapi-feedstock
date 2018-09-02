@@ -10,13 +10,13 @@ package:
 source:
   fn: rstudioapi_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/rstudioapi_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/rstudioapi_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
   sha256: a541bc76ef082d2c27e42fd683f8262cb195b1497af3509178d2642870397a8c
 
 build:
-  number: 0
-  skip: true  # [win32]
+  merge_build_host: True  # [win]
+  number: 1
 
   rpaths:
     - lib/R/lib/
@@ -24,14 +24,15 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('rstudioapi')"  # [not win]
+    - $R -e "library('rstudioapi')"           # [not win]
     - "\"%R%\" -e \"library('rstudioapi')\""  # [win]
 
 about:
@@ -40,11 +41,15 @@ about:
   summary: Access the RStudio API (if available) and provide informative error messages when
     it's not.
   license_family: MIT
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\MIT'  # [win]
 
 extra:
   recipe-maintainers:
-    - croth1
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - croth1
+    - dbast
