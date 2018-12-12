@@ -1,4 +1,4 @@
-{% set version = '0.7' %}
+{% set version = '0.8' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rstudioapi_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
-  sha256: a541bc76ef082d2c27e42fd683f8262cb195b1497af3509178d2642870397a8c
+  sha256: 93e5bc0dbe42889c47485c50837fa464b7a480e7566965b26719cc116c04d934
 
 build:
   noarch: generic
