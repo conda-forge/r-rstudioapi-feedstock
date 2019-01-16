@@ -1,5 +1,4 @@
-{% set version = '0.8' %}
-
+{% set version = '0.9.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,23 +7,22 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: rstudioapi_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/rstudioapi_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
-  sha256: 93e5bc0dbe42889c47485c50837fa464b7a480e7566965b26719cc116c04d934
+  sha256: 5149a2830ae7134c396ce64764b263cf9f348d4399f53da3804f40d7d5bec13e
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1001
-
+  number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
   host:
     - r-base
   run:
@@ -41,15 +39,28 @@ about:
   summary: Access the RStudio API (if available) and provide informative error messages when
     it's not.
   license_family: MIT
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\MIT'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
+    - conda-forge/r
     - croth1
-    - dbast
+
+# Package: rstudioapi
+# Title: Safely Access the RStudio API
+# Description: Access the RStudio API (if available) and provide informative error messages when it's not.
+# Version: 0.9.0
+# Authors@R: c( person("Kevin", "Ushey", role = c("aut", "cre"), email = "kevin@rstudio.com"), person("JJ", "Allaire", role = c("aut"), email = "jj@rstudio.com"), person("Hadley", "Wickham", role = c("aut"), email = "hadley@rstudio.com"), person("Gary", "Ritchie", role = c("aut"), email = "gary@rstudio.com"), person(family = "RStudio", role = "cph") )
+# Maintainer: Kevin Ushey <kevin@rstudio.com>
+# License: MIT + file LICENSE
+# URL: https://github.com/rstudio/rstudioapi
+# BugReports: https://github.com/rstudio/rstudioapi/issues
+# RoxygenNote: 6.1.1
+# Suggests: testthat, knitr, rmarkdown
+# VignetteBuilder: knitr
+# Encoding: UTF-8
+# NeedsCompilation: no
+# Packaged: 2019-01-08 22:18:21 UTC; kevin
+# Author: Kevin Ushey [aut, cre], JJ Allaire [aut], Hadley Wickham [aut], Gary Ritchie [aut], RStudio [cph]
+# Repository: CRAN
+# Date/Publication: 2019-01-09 08:30:03 UTC
