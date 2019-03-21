@@ -1,4 +1,4 @@
-{% set version = '0.9.0' %}
+{% set version = '0.10' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rstudioapi_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
-  sha256: 5149a2830ae7134c396ce64764b263cf9f348d4399f53da3804f40d7d5bec13e
+  sha256: 80c5aa3063bcab649904cb92f0b164edffa2f6b0e6a8f7ea28ae317b80e1ab96
 
 build:
   merge_build_host: True  # [win]
@@ -49,7 +49,7 @@ extra:
 # Package: rstudioapi
 # Title: Safely Access the RStudio API
 # Description: Access the RStudio API (if available) and provide informative error messages when it's not.
-# Version: 0.9.0
+# Version: 0.10
 # Authors@R: c( person("Kevin", "Ushey", role = c("aut", "cre"), email = "kevin@rstudio.com"), person("JJ", "Allaire", role = c("aut"), email = "jj@rstudio.com"), person("Hadley", "Wickham", role = c("aut"), email = "hadley@rstudio.com"), person("Gary", "Ritchie", role = c("aut"), email = "gary@rstudio.com"), person(family = "RStudio", role = "cph") )
 # Maintainer: Kevin Ushey <kevin@rstudio.com>
 # License: MIT + file LICENSE
@@ -60,7 +60,7 @@ extra:
 # VignetteBuilder: knitr
 # Encoding: UTF-8
 # NeedsCompilation: no
-# Packaged: 2019-01-08 22:18:21 UTC; kevin
+# Packaged: 2019-03-19 18:45:29 UTC; kevin
 # Author: Kevin Ushey [aut, cre], JJ Allaire [aut], Hadley Wickham [aut], Gary Ritchie [aut], RStudio [cph]
 # Repository: CRAN
-# Date/Publication: 2019-01-09 08:30:03 UTC
+# Date/Publication: 2019-03-19 20:30:03 UTC
