@@ -1,4 +1,4 @@
-{% set version = "0.11" %}
+{% set version = "0.12" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rstudioapi_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
-  sha256: 13e07fb7e2eba8cf1d885db2721901d676d219a1042d7ef5d166125e4905306b
+  sha256: 60f844c23f9887d2142e1659f21b30f0d021eb849788aac7687139ca551c2bd2
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -36,13 +36,12 @@ test:
 about:
   home: https://github.com/rstudio/rstudioapi
   license: MIT
-  summary: Access the RStudio API (if available) and provide informative error messages when
-    it's not.
+  summary: Access the RStudio API (if available) and provide informative error messages when it's not.
   license_family: MIT
-  license_file: 
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
-    - LICENSE  
-    
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
+
 extra:
   recipe-maintainers:
     - conda-forge/r

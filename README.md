@@ -5,11 +5,9 @@ Home: https://github.com/rstudio/rstudioapi
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rstudioapi-feedstock/blob/master/LICENSE.txt)
 
 Summary: Access the RStudio API (if available) and provide informative error messages when it's not.
-
-
 
 Current build status
 ====================
