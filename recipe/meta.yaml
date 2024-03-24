@@ -1,4 +1,4 @@
-{% set version = "0.15.0" %}
+{% set version = "0.16.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rstudioapi_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
-  sha256: 935bc81dca37d3d6e77982bfe6e7fbd779e8606e5b7e00d0ba4c80fec0416ccf
+  sha256: 74ffa867199e87a54386fbd26919233371f314f73d7338dd4e4695708fed4fe6
 
 build:
   merge_build_host: true  # [win]
