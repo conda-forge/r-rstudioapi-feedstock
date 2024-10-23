@@ -1,4 +1,4 @@
-{% set version = "0.16.0" %}
+{% set version = "0.17.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rstudioapi_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rstudioapi/rstudioapi_{{ version }}.tar.gz
-  sha256: 74ffa867199e87a54386fbd26919233371f314f73d7338dd4e4695708fed4fe6
+  sha256: 617ef983c8960673131fb92203fc3c64a7d3787e7479d42daba7acc49b5b3909
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
